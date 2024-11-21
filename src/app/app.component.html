@@ -1,0 +1,4 @@
+<p>{{ acceptchildmessage }}</p>
+<p>hello</p>
+<app-post [fromParent]="parentMessage" (messageEvent)="reciveMessage($event)"></app-post>
+<input type="text" [(ngModel)]="userName"  name="" id="" (keyup.enter)="onKeyUp()" >
