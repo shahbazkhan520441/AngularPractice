@@ -1,4 +1,31 @@
-<p>{{ acceptchildmessage }}</p>
-<p>hello</p>
-<app-post [fromParent]="parentMessage" (messageEvent)="reciveMessage($event)"></app-post>
-<input type="text" [(ngModel)]="userName"  name="" id="" (keyup.enter)="onKeyUp()" >
+<!-- <div class="form-area">
+  <h1>Post Form</h1>
+  <br> <br>
+  <input type="text" placeholder="Post title" name="" id="" [(ngModel)]="postTtle">
+  <br> <br>
+  <textarea  cols="30"  rows="10"  placeholder="Post Details" [(ngModel)]="postDetails"></textarea>
+  <br> <br>
+  <input type="text" placeholder="PostImage" value="" [(ngModel)]="imageURL">
+  <br> <br>
+  <input type="text" placeholder="Post Url" name="" id="" [(ngModel)]="postURL">
+  <br> <br>
+  <input type="checkbox" name="" id="" [(ngModel)]="addBackground">Add Background
+  <br> <br>
+</div>
+
+<div class="preview-area">
+   <img [src]="imageURL" alt="">
+   <h1 [class.add-background]="addBackground">{{postTtle}}</h1>
+   <p>{{postDetails}}</p>
+   <a [href]="postURL" target="_blank" [style.display]="postURL ? 'block':'none'" >moreDetails</a>
+    
+</div> -->
+
+<ul >
+  <li *ngFor=" let  post of objarray; let i=index ">
+   {{i}} {{post.posttitle}}<button (click)="onDelete(post)">deletepost</button></li>
+  
+</ul>
+
+<button (click)="addNew()">addNewPOST</button>
+

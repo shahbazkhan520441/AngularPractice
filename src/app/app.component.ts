@@ -6,32 +6,45 @@ import { PostComponent } from './post/post.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent   {
   title = 'ParentToChild_ChildToParentRelationship';
 
-  parentMessage: string = 'message changed';
+  postTtle!:string;
+  postDetails!:string;
+  imageURL!:string;
 
-  acceptchildmessage!: string;
+  addBackground!:boolean;
+  postURL!:string;
 
-
-  userName!:String
- 
-
-  @ViewChild(PostComponent) childComponent!: PostComponent;
-
-  constructor() {}
-
-  ngAfterViewInit() {
-    // Accessing the property of the child component
-    console.log(this.childComponent);
-    this.acceptchildmessage = this.childComponent.childMessage;
+   objarray: Array<{ id: number; posttitle: string }> = [
+    {
+      id: 1,
+      posttitle: 'post1',
+    },
+    {
+      id: 2,
+      posttitle: 'post2',
+    },
+    {
+      id: 3,
+      posttitle: 'post3',
+    },
+    {
+      id: 4,
+      posttitle: 'post4',
+    },
+  ];
+  
+  addNew(){
+    this.objarray.push({id:5,posttitle:'post6'})
   }
 
-  reciveMessage($event:any){
-    console.log($event)
-  }
+  onDelete(post:any)
+  {
+   let index=this.objarray.indexOf(post)
 
-  onKeyUp(){
-    console.log(this.userName)
+   this.objarray.splice(index,1)
+
   }
+  
 }
